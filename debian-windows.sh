@@ -1,1 +1,0 @@
-git@github.com:denyocrworld/magic_script.git
