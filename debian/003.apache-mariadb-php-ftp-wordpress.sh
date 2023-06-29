@@ -46,13 +46,13 @@ sudo apt update
 sudo apt install php8.1 libapache2-mod-php8.1 php8.1-mysql php-common php8.1-cli php8.1-xml php8.1-gd php8.1-mbstring php8.1-common php8.1-opcache php8.1-readline php8.1-curl -y
 sudo a2enmod php8.1
 sudo systemctl restart apache2
-curl -o /etc/php/8.1/apache2/php.ini https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_php.ini
-curl -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_apache.conf
+curl -o /etc/php/8.1/apache2/php.ini https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_php.ini?$(date +%s)
+curl -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_apache.conf?$(date +%s)
 sudo service apache2 restart
 sudo apt-get install vsftpd -y
 systemctl start vsftpd
 systemctl enable vsftpd
-curl -o /etc/vsftpd.conf https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_vsftpd.conf
+curl -o /etc/vsftpd.conf https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_vsftpd.conf?$(date +%s)
 
 sudo systemctl restart vsftpd
 
@@ -80,4 +80,4 @@ cd /var/www/html
 rm -rf index.html
 curl -O https://wordpress.org/latest.zip && unzip latest.zip && mv wordpress/* /var/www/html
 mysql -u root -e "create database if not exists master_db"
-curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php -o /var/www/html/wp-config.php
+curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php?$(date +%s) -o /var/www/html/wp-config.php
