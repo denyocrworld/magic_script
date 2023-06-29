@@ -87,6 +87,13 @@ curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0
 sed -i "s/define('FTP_USER', 'denyocr');/define('FTP_USER', '$FTP_USER_NAME');/" /var/www/html/wp-config.php
 sed -i "s/define('FTP_PASS', 'Biznet123');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" /var/www/html/wp-config.php
 
+FTP_USER_NAME="xxx"
+FTP_USER_PASSWORD="dare"
+
+curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php -o ./wp-config.php
+sed -i "s/define('FTP_USER', 'denyocr');/define('FTP_USER', '$FTP_USER_NAME');/" ./wp-config.php
+sed -i "s/define('FTP_PASS', 'Biznet123');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" ./wp-config.php
+
 
 # SETUP LETSENCRYPT
 sudo apt install snapd -y
