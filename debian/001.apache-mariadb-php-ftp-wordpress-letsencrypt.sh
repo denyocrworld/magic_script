@@ -5,6 +5,7 @@ WEB_DOMAIN="capekngoding.com"
 MYSQL_ROOT_PASSWORD="Biznet123"
 MYSQL_USER="rootc"
 MYSQL_USER_PASSWORD="Biznet123"
+MYSQL_DATABASE="master_db"
 
 FTP_USER_NAME="denyocr"
 FTP_USER_PASSWORD="Biznet123"
@@ -49,13 +50,13 @@ sudo apt update
 sudo apt install php8.1 libapache2-mod-php8.1 php8.1-mysql php-common php8.1-cli php8.1-xml php8.1-gd php8.1-mbstring php8.1-common php8.1-opcache php8.1-readline php8.1-curl -y
 sudo a2enmod php8.1
 sudo systemctl restart apache2
-curl -o /etc/php/8.1/apache2/php.ini https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_php.ini?$(date +%s)
-curl -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_apache.conf?$(date +%s)
+curl -o /etc/php/8.1/apache2/php.ini "https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_php.ini?$(date +%s)"
+curl -o /etc/apache2/apache2.conf "https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_apache.conf?$(date +%s)"
 sudo service apache2 restart
 sudo apt-get install vsftpd -y
 systemctl start vsftpd
 systemctl enable vsftpd
-curl -o /etc/vsftpd.conf https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_vsftpd.conf?$(date +%s)
+curl -o /etc/vsftpd.conf "https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_vsftpd.conf?$(date +%s)"
 
 sudo systemctl restart vsftpd
 
@@ -82,30 +83,11 @@ RewriteRule . /index.php [L]
 cd /var/www/html
 rm -rf index.html
 curl -O https://wordpress.org/latest.zip && unzip latest.zip && mv wordpress/* /var/www/html
-mysql -u root -e "create database if not exists master_db"
-curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php?$(date +%s) -o /var/www/html/wp-config.php
-sed -i "s/define('FTP_USER', 'denyocr');/define('FTP_USER', '$FTP_USER_NAME');/" /var/www/html/wp-config.php
-sed -i "s/define('FTP_PASS', 'Biznet123');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" /var/www/html/wp-config.php
+mysql -u root -e "create database if not exists $MYSQL_DATABASE"
 
-WEB_EMAIL="denyocr.world@gmail.com"
-WEB_DOMAIN="capekngoding.com"
+curl -o wordpress_curl.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/util/0_wordpress_curl.sh?$(date +%s)"
+sh wordpress_curl.sh
 
-FTP_USER_NAME="xxx"
-FTP_USER_PASSWORD="dare"
-
-MYSQL_ROOT_PASSWORD="Biznet123"
-MYSQL_USER="rootc"
-MYSQL_USER_PASSWORD="Biznet123"
-MYSQL_DATABASE="master_db"
-
-curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php?$(date +%s) -o ./wp-config.php
-sed -i "s/define('FTP_USER', '\$FTP_USER');/define('FTP_USER', '$FTP_USER_NAME');/" ./wp-config.php
-sed -i "s/define('FTP_PASS', '\$FTP_PASS');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" ./wp-config.php
-sed -i "s/define('FTP_HOST', '\$FTP_HOST');/define('FTP_HOST', '$WEB_DOMAIN');/" ./wp-config.php
-sed -i "s/define('DB_USER', '\$DB_USER');/define('DB_USER', '$MYSQL_USER');/" ./wp-config.php
-sed -i "s/define('DB_NAME', '\$DB_NAME');/define('DB_PASSWORD', '$MYSQL_DATABASE');/" ./wp-config.DB_NAME
-
-DB_NAME
 # SETUP LETSENCRYPT
 sudo apt install snapd -y
 sudo snap install core
