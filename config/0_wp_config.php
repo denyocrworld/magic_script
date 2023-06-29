@@ -6,44 +6,14 @@ define('FS_METHOD', 'direct');
 define('FTP_BASE', '/var/www/html');
 define('FTP_USER', '$FTP_USER');
 define('FTP_PASS', '$FTP_PASS');
-define('FTP_HOST', 'capekngoding.com');
+define('FTP_HOST', '$FTP_HOST');
 define('FTP_SSL', false);
-/**
- * The base configuration for WordPress
- *
- * The wp-config.php creation script uses this file during the installation.
- * You don't have to use the web site, you can copy this file to "wp-config.php"
- * and fill in the values.
- *
- * This file contains the following configurations:
- *
- * * Database settings
- * * Secret keys
- * * Database table prefix
- * * ABSPATH
- *
- * @link https://wordpress.org/support/article/editing-wp-config-php/
- *
- * @package WordPress
- */
 
-// ** Database settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'master_db' );
-
-/** Database username */
-define( 'DB_USER', 'rootx' );
-
-/** Database password */
-define( 'DB_PASSWORD', 'JagoFlutterEncr3ptedPassw0erd' );
-
-/** Database hostname */
+define( 'DB_NAME', '$DB_NAME' );
+define( 'DB_USER', '$DB_USER' );
+define( 'DB_PASSWORD', '$DB_PASSWORD' );
 define( 'DB_HOST', 'localhost' );
-
-/** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
-
-/** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
 // Block access from proxad.net domain

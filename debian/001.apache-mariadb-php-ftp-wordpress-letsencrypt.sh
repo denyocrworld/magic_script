@@ -87,14 +87,25 @@ curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0
 sed -i "s/define('FTP_USER', 'denyocr');/define('FTP_USER', '$FTP_USER_NAME');/" /var/www/html/wp-config.php
 sed -i "s/define('FTP_PASS', 'Biznet123');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" /var/www/html/wp-config.php
 
+WEB_EMAIL="denyocr.world@gmail.com"
+WEB_DOMAIN="capekngoding.com"
+
 FTP_USER_NAME="xxx"
 FTP_USER_PASSWORD="dare"
+
+MYSQL_ROOT_PASSWORD="Biznet123"
+MYSQL_USER="rootc"
+MYSQL_USER_PASSWORD="Biznet123"
+MYSQL_DATABASE="master_db"
 
 curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php?$(date +%s) -o ./wp-config.php
 sed -i "s/define('FTP_USER', '\$FTP_USER');/define('FTP_USER', '$FTP_USER_NAME');/" ./wp-config.php
 sed -i "s/define('FTP_PASS', '\$FTP_PASS');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" ./wp-config.php
+sed -i "s/define('FTP_HOST', '\$FTP_HOST');/define('FTP_HOST', '$WEB_DOMAIN');/" ./wp-config.php
+sed -i "s/define('DB_USER', '\$DB_USER');/define('DB_USER', '$MYSQL_USER');/" ./wp-config.php
+sed -i "s/define('DB_NAME', '\$DB_NAME');/define('DB_PASSWORD', '$MYSQL_DATABASE');/" ./wp-config.DB_NAME
 
-
+DB_NAME
 # SETUP LETSENCRYPT
 sudo apt install snapd -y
 sudo snap install core
