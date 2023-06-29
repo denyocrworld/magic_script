@@ -4,6 +4,7 @@
 ```
 curl -o install.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/debian/001.apache-mariadb-php-ftp-wordpress-letsencrypt.sh?$(date +%s)"
 ```
+## 1. Download Script with CURL
 
 ### Apache, MariaDB, PHP, FTP
 ```
@@ -28,4 +29,14 @@ curl -o install.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/
 ### .htaccess
 ```
 curl -o install.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/debian/005.htaccess.sh?$(date +%s)"
+```
+
+## 2. After download with CURL, run this command to configure:
+```
+nano install.sh
+```
+
+## 3. Run Script, and wait:
+```
+sh install.sh
 ```
