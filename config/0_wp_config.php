@@ -1,6 +1,5 @@
 <?php
 define( 'WP_CACHE', true );
-//define( 'WP_DEBUG', true );
 
 define('FS_METHOD', 'direct');
 define('FTP_BASE', '/var/www/html');
@@ -9,12 +8,12 @@ define('FTP_PASS', '$FTP_PASS');
 define('FTP_HOST', '$FTP_HOST');
 define('FTP_SSL', false);
 
-define( 'DB_NAME', '$DB_NAME' );
-define( 'DB_USER', '$DB_USER' );
-define( 'DB_PASSWORD', '$DB_PASSWORD' );
-define( 'DB_HOST', 'localhost' );
-define( 'DB_CHARSET', 'utf8mb4' );
-define( 'DB_COLLATE', '' );
+define('DB_NAME', '$DB_NAME');
+define('DB_USER', '$DB_USER');
+define('DB_PASSWORD', '$DB_PASSWORD');
+define('DB_HOST', 'localhost');
+define('DB_CHARSET', 'utf8mb4');
+define('DB_COLLATE', '');
 
 // Block access from proxad.net domain
 if (strpos($_SERVER['HTTP_HOST'], 'proxad.net') !== false) {
