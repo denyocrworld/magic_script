@@ -1,14 +1,18 @@
 #!/bin/bash
-EXPORT WEB_EMAIL="denyocr.world@gmail.com"
-EXPORT WEB_DOMAIN="capekngoding.com"
+WEB_EMAIL="denyocr.world@gmail.com"
+WEB_DOMAIN="capekngoding.com"
 
-EXPORT MYSQL_ROOT_PASSWORD="Biznet123"
-EXPORT MYSQL_USER="rootc"
-EXPORT MYSQL_USER_PASSWORD="Biznet123"
-EXPORT MYSQL_DATABASE="master_db"
+MYSQL_ROOT_PASSWORD="Biznet123"
+MYSQL_USER="rootc"
+MYSQL_USER_PASSWORD="Biznet123"
+MYSQL_DATABASE="master_db"
 
-EXPORT FTP_USER_NAME="denyocr"
-EXPORT FTP_USER_PASSWORD="Biznet123"
+FTP_USER_NAME="denyocr"
+FTP_USER_PASSWORD="Biznet123"
 
-curl -o wordpress_curl.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/util/0_wordpress_curl.sh?$(date +%s)"
-sh wordpress_curl.sh
+curl "https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php?$(date +%s)" -o /var/www/html/wp-config.php
+sed -i "s/define('FTP_USER', '\$FTP_USER');/define('FTP_USER', '$FTP_USER_NAME');/" /var/www/html/wp-config.php
+sed -i "s/define('FTP_PASS', '\$FTP_PASS');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" /var/www/html/wp-config.php
+sed -i "s/define('FTP_HOST', '\$FTP_HOST');/define('FTP_HOST', '$WEB_DOMAIN');/" /var/www/html/wp-config.php
+sed -i "s/define('DB_USER', '\$DB_USER');/define('DB_USER', '$MYSQL_USER');/" /var/www/html/wp-config.php
+sed -i "s/define('DB_NAME', '\$DB_NAME');/define('DB_PASSWORD', '$MYSQL_DATABASE');/" /var/www/html/wp-config.php
