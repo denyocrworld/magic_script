@@ -1,14 +1,14 @@
 #!/bin/bash
-WEB_EMAIL="denyocr.world@gmail.com"
-WEB_DOMAIN="capekngoding.com"
+EXPORT WEB_EMAIL="denyocr.world@gmail.com"
+EXPORT WEB_DOMAIN="capekngoding.com"
 
-MYSQL_ROOT_PASSWORD="Biznet123"
-MYSQL_USER="rootc"
-MYSQL_USER_PASSWORD="Biznet123"
-MYSQL_DATABASE="master_db"
+EXPORT MYSQL_ROOT_PASSWORD="Biznet123"
+EXPORT MYSQL_USER="rootc"
+EXPORT MYSQL_USER_PASSWORD="Biznet123"
+EXPORT MYSQL_DATABASE="master_db"
 
-FTP_USER_NAME="denyocr"
-FTP_USER_PASSWORD="Biznet123"
+EXPORT FTP_USER_NAME="denyocr"
+EXPORT FTP_USER_PASSWORD="Biznet123"
 
 curl -o wordpress_curl.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/util/0_wordpress_curl.sh?$(date +%s)"
 sh wordpress_curl.sh
