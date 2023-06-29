@@ -5,7 +5,7 @@
 curl -o install.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/debian/001.apache-mariadb-php-ftp-wordpress-letsencrypt.sh?$(date +%s)"
 ```
 ## 1. Download Script with CURL
-
+<i>**choose one</i>
 ### Apache, MariaDB, PHP, FTP
 ```
 curl -o install.sh "https://raw.githubusercontent.com/denyocrworld/magic_script/master/debian/002.apache-mariadb-php-ftp.sh?$(date +%s)"
