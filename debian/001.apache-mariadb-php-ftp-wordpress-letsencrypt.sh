@@ -84,6 +84,9 @@ rm -rf index.html
 curl -O https://wordpress.org/latest.zip && unzip latest.zip && mv wordpress/* /var/www/html
 mysql -u root -e "create database if not exists master_db"
 curl https://raw.githubusercontent.com/denyocrworld/magic_script/master/config/0_wp_config.php -o /var/www/html/wp-config.php
+sed -i "s/define('FTP_USER', 'denyocr');/define('FTP_USER', '$FTP_USER_NAME');/" /var/www/html/wp-config.php
+sed -i "s/define('FTP_PASS', 'Biznet123');/define('FTP_PASS', '$FTP_USER_PASSWORD');/" /var/www/html/wp-config.php
+
 
 # SETUP LETSENCRYPT
 sudo apt install snapd -y

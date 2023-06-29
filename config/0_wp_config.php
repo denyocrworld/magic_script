@@ -5,8 +5,8 @@ define( 'WP_CACHE', true );
 define('FS_METHOD', 'direct');
 define('FTP_BASE', '/var/www/html');
 define('FTP_USER', 'denyocr');
-define('FTP_PASS', 'JagoFilzi3sfFlutterEncr3ptedPassw0erd');
-define('FTP_HOST', 'jagoflutter.com');
+define('FTP_PASS', 'Biznet123');
+define('FTP_HOST', 'capekngoding.com');
 define('FTP_SSL', false);
 /**
  * The base configuration for WordPress
